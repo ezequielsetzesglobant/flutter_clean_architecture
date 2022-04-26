@@ -19,6 +19,7 @@ void main() {
   late MockPokedexApiService pokedexApiService;
   late DataState<PokedexEntity> dataStateSuccess;
   late DataState<PokedexEntity> dataStateFailed;
+  late DataState<PokedexEntity> dataStateEmptyList;
 
   setUp(() {
     pokedexApiService = MockPokedexApiService();
@@ -32,9 +33,10 @@ void main() {
         PokemonModel.fromJson(_getPokemonJson());
     dataStateSuccess = DataSuccess(pokedexModel);
     dataStateFailed = DataFailed('error');
+    dataStateEmptyList = DataEmpty();
   });
 
-  group('Check usecase', () {
+  group('Check pokedex usecase', () {
     test('Case whit success', () async {
       when(pokedexApiService.getPokemonIds()).thenAnswer(
         (_) async => dataStateSuccess,
@@ -43,6 +45,8 @@ void main() {
       DataState<PokedexEntity> dataStateResponse = await usecase();
 
       expect(dataStateResponse.data, dataStateSuccess.data);
+      expect(dataStateResponse.error, null);
+      expect(dataStateResponse.type, dataStateSuccess.type);
     });
 
     test('Case whit failed', () async {
@@ -53,6 +57,20 @@ void main() {
       DataState<PokedexEntity> dataStateResponse = await usecase();
 
       expect(dataStateResponse.error, dataStateFailed.error);
+      expect(dataStateResponse.data, null);
+      expect(dataStateResponse.type, dataStateFailed.type);
+    });
+
+    test('Case whit empty list', () async {
+      when(pokedexApiService.getPokemonIds()).thenAnswer(
+        (_) async => dataStateEmptyList,
+      );
+
+      DataState<PokedexEntity> dataStateResponse = await usecase();
+
+      expect(dataStateResponse.data, null);
+      expect(dataStateResponse.error, null);
+      expect(dataStateResponse.type, dataStateEmptyList.type);
     });
   });
 }

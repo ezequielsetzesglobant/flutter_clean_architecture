@@ -16,33 +16,37 @@ class PokemonsList extends StatefulWidget {
 class _PokemonsListState extends State<PokemonsList> {
   @override
   Widget build(BuildContext context) {
-    if (widget.data is PokedexSuccess) {
-      return ListView.builder(
-        itemCount: widget.data.pokedex_entity?.pokemonEntries.length,
-        itemBuilder: (context, index) {
-          return ListItem(
-            pokemon: widget.data.pokedex_entity!.pokemonEntries[index].pokemon,
-          );
-        },
-      );
-    } else if (widget.data is PokedexEmpty) {
-      return Center(
-        child: Text(
-          Constants.emptyListMessage,
-          style: TextStyles.pokedexTextStyle,
-        ),
-      );
-    } else if (widget.data is PokedexError) {
-      return Center(
-        child: Text(
-          widget.data.error!,
-          style: TextStyles.pokedexTextStyle,
-        ),
-      );
-    } else {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
+    switch (widget.data.type) {
+      case PokedexStateType.success:
+        return ListView.builder(
+          itemCount: widget.data.pokedexEntity?.pokemonEntries.length,
+          itemBuilder: (
+            BuildContext context,
+            int index,
+          ) {
+            return ListItem(
+              pokemon: widget.data.pokedexEntity!.pokemonEntries[index].pokemon,
+            );
+          },
+        );
+      case PokedexStateType.empty:
+        return Center(
+          child: Text(
+            Constants.emptyListMessage,
+            style: TextStyles.pokedexTextStyle,
+          ),
+        );
+      case PokedexStateType.error:
+        return Center(
+          child: Text(
+            widget.data.error!,
+            style: TextStyles.pokedexTextStyle,
+          ),
+        );
+      default:
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
     }
   }
 }

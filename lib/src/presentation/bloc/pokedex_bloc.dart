@@ -31,14 +31,16 @@ class PokedexBloc extends IPokedexBloc {
 
   void _getPokemonIds() async {
     final dataState = await pokedexUseCase();
-    if (dataState is DataSuccess) {
-      if (dataState.data.pokemonEntries.isNotEmpty) {
+    switch (dataState.type) {
+      case DataStateType.success:
         _pokedexStreamController.sink.add(PokedexSuccess(dataState.data));
-      } else {
+        break;
+      case DataStateType.empty:
         _pokedexStreamController.sink.add(PokedexEmpty());
-      }
-    } else {
-      _pokedexStreamController.sink.add(PokedexError(dataState.error));
+        break;
+      case DataStateType.error:
+        _pokedexStreamController.sink.add(PokedexError(dataState.error));
+        break;
     }
   }
 }

@@ -5,7 +5,10 @@ import '../bloc/state/pokedex_state.dart';
 import '../widget/pokemons_list.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({required this.title, required this.bloc});
+  const HomePage({
+    required this.title,
+    required this.bloc,
+  });
 
   final String title;
   final IPokedexBloc bloc;

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import '../../model/pokemon_entry_model.dart';
 import '../../../core/util/constants.dart';
 import '../../../core/resource/data_state.dart';
 import '../../../domain/entity/pokedex_entity.dart';
@@ -18,15 +19,18 @@ class PokedexApiService {
         final pokedexModel = PokedexModel.fromJson(
           json.decode(response.body),
         );
-        for (int i = Constants.initialValue;
-            i < pokedexModel.pokemonEntries.length;
-            i++) {
-          pokedexModel.pokemonEntries[i].pokemon =
-              await _getPokemon(pokedexModel.pokemonEntries[i].entryNumber);
+        await Future.forEach<PokemonEntryModel>(
+            pokedexModel.pokemonEntries as List<PokemonEntryModel>,
+            (pokemonEntry) async {
+          pokemonEntry.pokemon = await _getPokemon(pokemonEntry.entryNumber);
+        });
+        if (pokedexModel.pokemonEntries.isNotEmpty) {
+          return DataSuccess(
+            pokedexModel,
+          );
+        } else {
+          return DataEmpty();
         }
-        return DataSuccess(
-          pokedexModel,
-        );
       } else {
         return const DataFailed(
           Constants.requestError,

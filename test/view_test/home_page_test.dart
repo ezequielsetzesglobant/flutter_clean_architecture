@@ -31,10 +31,7 @@ void main() {
         PokemonModel.fromJson(_getPokemonJson());
     dataStateSuccess = DataSuccess(pokedexModel);
     dataStateFailed = DataFailed('error');
-    PokedexModel pokedexModelEmptyList =
-        PokedexModel.fromJson(_getPokedexJson());
-    pokedexModelEmptyList.pokemonEntries.clear();
-    dataStateEmptyList = DataSuccess(pokedexModelEmptyList);
+    dataStateEmptyList = DataEmpty();
   });
 
   group('Check for existence and non-existence of widgets', () {

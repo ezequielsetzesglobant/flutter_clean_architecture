@@ -1,6 +1,6 @@
 class Constants {
   static const String appTitle = 'Flutter App';
-  static String homePageTitle = 'Home Page';
+  static const String homePageTitle = 'Home Page';
   static const String pokedexUrl = 'https://pokeapi.co/api/v2/pokedex/1';
   static const String pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
   static const String emptyListMessage = 'Pokemons not found';

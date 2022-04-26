@@ -1,24 +1,33 @@
 import '../../../domain/entity/pokedex_entity.dart';
 
 abstract class PokedexState {
-  final PokedexEntity? pokedex_entity;
+  final PokedexEntity? pokedexEntity;
   final String? error;
+  final PokedexStateType type;
 
-  const PokedexState({this.pokedex_entity, this.error});
+  const PokedexState({
+    this.pokedexEntity,
+    this.error,
+    required this.type,
+  });
 }
 
 class PokedexLoading extends PokedexState {
-  const PokedexLoading();
+  const PokedexLoading() : super(type: PokedexStateType.loading);
 }
 
 class PokedexSuccess extends PokedexState {
-  const PokedexSuccess(PokedexEntity pokedex) : super(pokedex_entity: pokedex);
+  const PokedexSuccess(PokedexEntity pokedex)
+      : super(pokedexEntity: pokedex, type: PokedexStateType.success);
 }
 
 class PokedexEmpty extends PokedexState {
-  const PokedexEmpty();
+  const PokedexEmpty() : super(type: PokedexStateType.empty);
 }
 
 class PokedexError extends PokedexState {
-  const PokedexError(String error) : super(error: error);
+  const PokedexError(String error)
+      : super(error: error, type: PokedexStateType.error);
 }
+
+enum PokedexStateType { loading, success, empty, error }
