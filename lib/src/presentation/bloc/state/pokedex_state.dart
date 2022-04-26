@@ -13,21 +13,33 @@ abstract class PokedexState {
 }
 
 class PokedexLoading extends PokedexState {
-  const PokedexLoading() : super(type: PokedexStateType.loading);
+  const PokedexLoading()
+      : super(
+          type: PokedexStateType.loading,
+        );
 }
 
 class PokedexSuccess extends PokedexState {
   const PokedexSuccess(PokedexEntity pokedex)
-      : super(pokedexEntity: pokedex, type: PokedexStateType.success);
+      : super(
+          pokedexEntity: pokedex,
+          type: PokedexStateType.success,
+        );
 }
 
 class PokedexEmpty extends PokedexState {
-  const PokedexEmpty() : super(type: PokedexStateType.empty);
+  const PokedexEmpty()
+      : super(
+          type: PokedexStateType.empty,
+        );
 }
 
 class PokedexError extends PokedexState {
   const PokedexError(String error)
-      : super(error: error, type: PokedexStateType.error);
+      : super(
+          error: error,
+          type: PokedexStateType.error,
+        );
 }
 
 enum PokedexStateType { loading, success, empty, error }

@@ -11,16 +11,26 @@ abstract class DataState<T> {
 }
 
 class DataSuccess<T> extends DataState<T> {
-  const DataSuccess(T data) : super(data: data, type: DataStateType.success);
+  const DataSuccess(T data)
+      : super(
+          data: data,
+          type: DataStateType.success,
+        );
 }
 
 class DataEmpty<T> extends DataState<T> {
-  const DataEmpty() : super(type: DataStateType.empty);
+  const DataEmpty()
+      : super(
+          type: DataStateType.empty,
+        );
 }
 
 class DataFailed<T> extends DataState<T> {
   const DataFailed(String error)
-      : super(error: error, type: DataStateType.error);
+      : super(
+          error: error,
+          type: DataStateType.error,
+        );
 }
 
 enum DataStateType { success, empty, error }

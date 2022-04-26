@@ -49,7 +49,7 @@ void main() {
       expect(dataStateResponse.type, dataStateSuccess.type);
     });
 
-    test('Case whit failed', () async {
+    test('Case error when service fail', () async {
       when(pokedexApiService.getPokemonIds()).thenAnswer(
         (_) async => dataStateFailed,
       );

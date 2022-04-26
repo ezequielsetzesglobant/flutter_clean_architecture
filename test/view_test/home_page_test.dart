@@ -59,7 +59,7 @@ void main() {
       expect(find.text('Pokemons not found'), findsNothing);
     });
 
-    testWidgets('Case with error', (WidgetTester tester) async {
+    testWidgets('Case error when service fail', (WidgetTester tester) async {
       when(usecase()).thenAnswer(
         (_) async => dataStateFailed,
       );
