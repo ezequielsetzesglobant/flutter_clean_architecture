@@ -18,4 +18,22 @@ class Constants {
   static const double itemListHeight = 100.0;
   static const double nameHeight = 50.0;
   static const double nameWeight = 200.0;
+  static const String detailsPageTitle = 'Details Page';
+  static const String speciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
+  static const String homePageRoute = '/';
+  static const String defaultRouteMessage = 'Route not found';
+  static const String detailsPageRoute = '/detailsPage';
+  static const double detailsNameHeight = 100.0;
+  static const double detailsNameWeight = 400.0;
+  static const double detailsDataFontSize = 35.0;
+  static const double detailsPadding = 10.0;
+  static const double detailsBoxBorderWidth = 10.0;
+  static const double detailsBoxBorderRadius = 20.0;
+  static const String detailsCaptureRateLabel = 'Capture rate:';
+  static const String detailsBabyLabel = 'Baby:';
+  static const String detailsLegendaryLabel = 'Legendary:';
+  static const String detailsMythicalLabel = 'Mythical:';
+  static const String detailsColorLabel = 'Color:';
+  static const String detailsHabitatLabel = 'Habitat:';
+  static const String detailsShapeLabel = 'Shape:';
 }

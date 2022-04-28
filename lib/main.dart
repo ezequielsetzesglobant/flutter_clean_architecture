@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/src/config/route/app_routes.dart';
 import 'src/config/theme/app_themes.dart';
 import 'src/core/util/constants.dart';
 import 'src/data/datasource/remote/pokedex_api_service.dart';
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      initialRoute: Constants.homePageRoute,
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }
