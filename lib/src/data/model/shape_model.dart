@@ -1,9 +1,10 @@
+import '../../core/util/constants.dart';
 import '../../domain/entity/shape_entity.dart';
 
 class ShapeModel extends ShapeEntity {
   ShapeModel({
-    required String name,
-    required String url,
+    String name = Constants.defaultNome,
+    String url = Constants.defaultUrl,
   }) : super(
           name: name,
           url: url,

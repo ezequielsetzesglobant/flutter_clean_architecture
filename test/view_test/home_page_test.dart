@@ -117,7 +117,10 @@ Map<String, dynamic> _getPokedexJson() {
     "pokemon_entries": [
       {
         "entry_number": 1,
-        "pokemon_species": {"name": "bulbasaur", "url": ""}
+        "pokemon_species": {
+          "name": "bulbasaur",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/1/"
+        }
       },
     ],
   };
@@ -132,6 +135,11 @@ Map<String, dynamic> _getPokemonJson() {
     "name": "bulbasaur",
     "order": 1,
     "weight": 69,
-    "sprites": {"back_default": "", "front_default": ""}
+    "sprites": {
+      "back_default":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+      "front_default":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+    }
   };
 }

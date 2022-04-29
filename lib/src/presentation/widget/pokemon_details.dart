@@ -13,13 +13,13 @@ class PokemonDetails extends StatelessWidget {
     switch (data.type) {
       case SpeciesStateType.success:
         return PokemonData(
-          species: data.speciesEntity!,
+          pokemonEntity: data.pokemonEntity!,
         );
       case SpeciesStateType.error:
         return Center(
           child: Text(
             data.error!,
-            style: TextStyles.pokedexTextStyle,
+            style: TextStyles.noSuccessMessageTextStyle,
           ),
         );
       case SpeciesStateType.loading:

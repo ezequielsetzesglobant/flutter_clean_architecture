@@ -1,39 +1,40 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../core/util/colors_constants.dart';
 import '../../core/util/constants.dart';
 import '../../core/util/text_styles.dart';
 import '../../domain/entity/pokemon_entity.dart';
 
 class ListItem extends StatelessWidget {
-  const ListItem({required this.pokemon});
+  const ListItem({required this.pokemonEntity});
 
-  final PokemonEntity pokemon;
+  final PokemonEntity pokemonEntity;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       child: Card(
-        color: Colors.lightBlue,
+        color: ColorsConstants.cardColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: SizedBox(
-                height: Constants.itemListHeight,
+                height: Constants.cardImageSize,
                 child: Padding(
                   padding: const EdgeInsets.all(Constants.cardElementsPadding),
                   child: ClipRRect(
                     child: CachedNetworkImage(
                       placeholder: (context, url) => Image.asset(
                         Constants.imageNotFound,
-                        width: Constants.imageSize,
-                        height: Constants.imageSize,
+                        width: Constants.cardImageSize,
+                        height: Constants.cardImageSize,
                       ),
-                      imageUrl: pokemon.sprites.frontDefault,
+                      imageUrl: pokemonEntity.sprites.frontDefault,
                       errorWidget: (context, url, error) => Image.asset(
                         Constants.imageNotFound,
-                        width: Constants.imageSize,
-                        height: Constants.imageSize,
+                        width: Constants.cardImageSize,
+                        height: Constants.cardImageSize,
                       ),
                     ),
                   ),
@@ -46,12 +47,12 @@ class ListItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(Constants.cardElementsPadding),
                   child: Container(
-                    height: Constants.nameHeight,
-                    width: Constants.nameWeight,
+                    height: Constants.cardNameHeight,
+                    width: Constants.cardNameWeight,
                     child: FittedBox(
                       child: Text(
-                        pokemon.name.toUpperCase(),
-                        style: TextStyles.nameTextStyle,
+                        pokemonEntity.name.toUpperCase(),
+                        style: TextStyles.cardNameTextStyle,
                       ),
                     ),
                   ),
@@ -63,16 +64,16 @@ class ListItem extends StatelessWidget {
                       padding:
                           const EdgeInsets.all(Constants.cardElementsPadding),
                       child: Text(
-                        '${Constants.weightLabel} ${pokemon.weight}',
-                        style: TextStyles.weightTextStyle,
+                        '${Constants.cardWeightLabel} ${pokemonEntity.weight}',
+                        style: TextStyles.cardAttributesTextStyle,
                       ),
                     ),
                     Padding(
                       padding:
                           const EdgeInsets.all(Constants.cardElementsPadding),
                       child: Text(
-                        '${Constants.heightLabel} ${pokemon.height}',
-                        style: TextStyles.heightTextStyle,
+                        '${Constants.cardHeightLabel} ${pokemonEntity.height}',
+                        style: TextStyles.cardAttributesTextStyle,
                       ),
                     ),
                   ],
@@ -85,7 +86,7 @@ class ListItem extends StatelessWidget {
       onTap: () {
         Navigator.of(context).pushNamed(
           Constants.detailsPageRoute,
-          arguments: pokemon.id,
+          arguments: pokemonEntity,
         );
       },
     );

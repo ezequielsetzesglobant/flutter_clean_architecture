@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../domain/entity/pokemon_entity.dart';
 import '../bloc/event/species_event.dart';
 import '../bloc/interface/i_species_bloc.dart';
 import '../bloc/state/species_state.dart';
@@ -8,12 +9,12 @@ class DetailsPage extends StatefulWidget {
   const DetailsPage({
     required this.title,
     required this.bloc,
-    required this.speciesId,
+    required this.pokemonEntity,
   });
 
   final String title;
   final ISpeciesBloc bloc;
-  final int speciesId;
+  final PokemonEntity pokemonEntity;
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -24,7 +25,7 @@ class _DetailsPageState extends State<DetailsPage> {
   void initState() {
     super.initState();
     widget.bloc.getSpeciesState(
-        speciesEvent: SpeciesGetSpecies(), speciesId: widget.speciesId);
+        speciesEvent: SpeciesGetSpecies(), pokemonEntity: widget.pokemonEntity);
   }
 
   @override
@@ -36,7 +37,6 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
       appBar: AppBar(
         title: Text(
           widget.title,

@@ -1,6 +1,7 @@
 import 'dart:async';
 import '../../core/resource/data_state.dart';
 import '../../core/usecase/i_usecase.dart';
+import '../../domain/entity/pokemon_entity.dart';
 import 'event/species_event.dart';
 import 'interface/i_species_bloc.dart';
 import 'state/species_state.dart';
@@ -24,17 +25,19 @@ class SpeciesBloc extends ISpeciesBloc {
 
   @override
   void getSpeciesState(
-      {required SpeciesEvent speciesEvent, required int speciesId}) {
+      {required SpeciesEvent speciesEvent,
+      required PokemonEntity pokemonEntity}) {
     if (speciesEvent is SpeciesGetSpecies) {
-      _getSpecies(speciesId: speciesId);
+      _getSpecies(pokemonEntity: pokemonEntity);
     }
   }
 
-  void _getSpecies({required int speciesId}) async {
-    final dataState = await speciesUseCase(speciesId: speciesId);
+  void _getSpecies({required PokemonEntity pokemonEntity}) async {
+    final dataState = await speciesUseCase(speciesId: pokemonEntity.id);
     switch (dataState.type) {
       case DataStateType.success:
-        _pokedexStreamController.sink.add(SpeciesSuccess(dataState.data));
+        pokemonEntity.species = dataState.data;
+        _pokedexStreamController.sink.add(SpeciesSuccess(pokemonEntity));
         break;
       case DataStateType.error:
         _pokedexStreamController.sink.add(SpeciesError(dataState.error));

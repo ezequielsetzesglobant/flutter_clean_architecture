@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: Constants.appTitle,
-      theme: Themes.pokedexTheme,
+      theme: Themes.appTheme,
       home: HomePage(
         title: Constants.homePageTitle,
         bloc: PokedexBloc(

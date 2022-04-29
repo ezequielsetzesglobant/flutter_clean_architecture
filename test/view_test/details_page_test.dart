@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/core/resource/data_state.dart';
+import 'package:flutter_clean_architecture/src/data/model/pokemon_model.dart';
 import 'package:flutter_clean_architecture/src/data/model/species_model.dart';
+import 'package:flutter_clean_architecture/src/domain/entity/pokemon_entity.dart';
 import 'package:flutter_clean_architecture/src/domain/entity/species_entity.dart';
 import 'package:flutter_clean_architecture/src/domain/usecase/implementation/species_usecase.dart';
 import 'package:flutter_clean_architecture/src/presentation/bloc/interface/i_species_bloc.dart';
@@ -20,6 +22,7 @@ void main() {
   late MockSpeciesUsecase usecase;
   late DataState<SpeciesEntity> dataStateSuccess;
   late DataState<SpeciesEntity> dataStateFailed;
+  late PokemonEntity pokemonEntity;
 
   setUp(() {
     usecase = MockSpeciesUsecase();
@@ -27,6 +30,7 @@ void main() {
     SpeciesModel speciesModel = SpeciesModel.fromJson(_getSpeciesJson());
     dataStateSuccess = DataSuccess(speciesModel);
     dataStateFailed = DataFailed('error');
+    pokemonEntity = PokemonModel.fromJson(_getPokemonJson());
   });
 
   group('Check for existence and non-existence of widgets in DetailsPage', () {
@@ -42,7 +46,7 @@ void main() {
               home: DetailsPage(
                 title: 'Details Page',
                 bloc: bloc,
-                speciesId: 1,
+                pokemonEntity: pokemonEntity,
               ),
             ),
           ),
@@ -50,7 +54,7 @@ void main() {
       });
       await tester.pump();
 
-      expect(find.byType(Text), findsNWidgets(9));
+      expect(find.byType(Text), findsNWidgets(11));
       expect(find.text('error'), findsNothing);
     });
 
@@ -66,7 +70,7 @@ void main() {
               home: DetailsPage(
                 title: 'Details Page',
                 bloc: bloc,
-                speciesId: 1,
+                pokemonEntity: pokemonEntity,
               ),
             ),
           ),
@@ -78,6 +82,19 @@ void main() {
       expect(find.byType(Text), findsNWidgets(2));
     });
   });
+}
+
+Map<String, dynamic> _getPokemonJson() {
+  return {
+    "base_experience": 64,
+    "height": 7,
+    "id": 1,
+    "is_default": true,
+    "name": "bulbasaur",
+    "order": 1,
+    "weight": 69,
+    "sprites": {"back_default": "", "front_default": ""}
+  };
 }
 
 Map<String, dynamic> _getSpeciesJson() {
@@ -100,5 +117,11 @@ Map<String, dynamic> _getSpeciesJson() {
       "name": "quadruped",
       "url": "https://pokeapi.co/api/v2/pokemon-shape/8/"
     },
+    "flavor_text_entries": [
+      {
+        "flavor_text":
+            "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.",
+      },
+    ],
   };
 }

@@ -20,7 +20,7 @@ class PokemonsList extends StatelessWidget {
             int index,
           ) {
             return ListItem(
-              pokemon: data.pokedexEntity!.pokemonEntries[index].pokemon,
+              pokemonEntity: data.pokedexEntity!.pokemonEntries[index].pokemon,
             );
           },
         );
@@ -28,14 +28,14 @@ class PokemonsList extends StatelessWidget {
         return Center(
           child: Text(
             Constants.emptyListMessage,
-            style: TextStyles.pokedexTextStyle,
+            style: TextStyles.noSuccessMessageTextStyle,
           ),
         );
       case PokedexStateType.error:
         return Center(
           child: Text(
             data.error!,
-            style: TextStyles.pokedexTextStyle,
+            style: TextStyles.noSuccessMessageTextStyle,
           ),
         );
       case PokedexStateType.loading:

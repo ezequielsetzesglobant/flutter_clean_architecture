@@ -1,12 +1,13 @@
+import '../../../domain/entity/pokemon_entity.dart';
 import '../../../domain/entity/species_entity.dart';
 
 abstract class SpeciesState {
-  final SpeciesEntity? speciesEntity;
+  final PokemonEntity? pokemonEntity;
   final String? error;
   final SpeciesStateType type;
 
   const SpeciesState({
-    this.speciesEntity,
+    this.pokemonEntity,
     this.error,
     required this.type,
   });
@@ -17,8 +18,8 @@ class SpeciesLoading extends SpeciesState {
 }
 
 class SpeciesSuccess extends SpeciesState {
-  const SpeciesSuccess(SpeciesEntity species)
-      : super(speciesEntity: species, type: SpeciesStateType.success);
+  const SpeciesSuccess(PokemonEntity pokemonEntity)
+      : super(pokemonEntity: pokemonEntity, type: SpeciesStateType.success);
 }
 
 class SpeciesEmpty extends SpeciesState {

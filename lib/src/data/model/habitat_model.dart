@@ -1,9 +1,10 @@
+import '../../core/util/constants.dart';
 import '../../domain/entity/habitat_entity.dart';
 
 class HabitatModel extends HabitatEntity {
   HabitatModel({
-    required String name,
-    required String url,
+    String name = Constants.defaultNome,
+    String url = Constants.defaultUrl,
   }) : super(
           name: name,
           url: url,

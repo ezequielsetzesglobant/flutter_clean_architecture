@@ -1,38 +1,43 @@
 import 'package:flutter/material.dart';
+import 'colors_constants.dart';
 import 'constants.dart';
 
 class TextStyles {
-  static const TextStyle pokedexTextStyle = TextStyle(
-    fontSize: Constants.pokedexFontSize,
+  static const TextStyle noSuccessMessageTextStyle = TextStyle(
+    fontSize: Constants.noSuccessMessageFontSize,
     color: Colors.redAccent,
+    fontWeight: FontWeight.bold,
   );
-  static const TextStyle nameTextStyle = TextStyle(
-    color: Colors.amber,
+  static const TextStyle cardNameTextStyle = TextStyle(
+    color: ColorsConstants.cardNameColor,
   );
-  static const TextStyle weightTextStyle = TextStyle(
-    fontSize: Constants.attributesFontSize,
-    color: Colors.yellow,
-  );
-  static const TextStyle heightTextStyle = TextStyle(
-    fontSize: Constants.attributesFontSize,
-    color: Colors.yellow,
+  static const TextStyle cardAttributesTextStyle = TextStyle(
+    fontSize: Constants.cardAttributesFontSize,
+    color: ColorsConstants.cardAttributesColor,
   );
   static const TextStyle detailsNameTextStyle = TextStyle(
-    color: Colors.black,
+    color: ColorsConstants.detailsTextColor,
     decoration: TextDecoration.underline,
     fontWeight: FontWeight.bold,
   );
-  static const TextStyle detailsCaptureRateTextStyle = TextStyle(
-    fontSize: Constants.detailsDataFontSize,
-    color: Colors.indigo,
-    backgroundColor: Colors.black26,
+  static const TextStyle detailsWeightAndHeightTextStyle = TextStyle(
+    fontSize: Constants.detailsWeightAndHeightFontSize,
+    color: ColorsConstants.detailsTextColor,
   );
-  static const TextStyle detailsAgeTextStyle = TextStyle(
-    fontSize: Constants.detailsDataFontSize,
-    color: Colors.lime,
+  static const TextStyle detailsAttributesTextStyle = TextStyle(
+    fontSize: Constants.detailsAttributesFontSize,
+    color: ColorsConstants.detailsTextColor,
   );
-  static const TextStyle detailsGeneralDataTextStyle = TextStyle(
-    fontSize: Constants.detailsDataFontSize,
-    color: Colors.orange,
+  static const TextStyle detailsDescriptionTitleTextStyle = TextStyle(
+    fontSize: Constants.detailsDescriptionTitleFontSize,
+    color: ColorsConstants.detailsTextColor,
+    decoration: TextDecoration.underline,
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle detailsDescriptionTextStyle = TextStyle(
+    fontSize: Constants.detailsDescriptionFontSize,
+    color: ColorsConstants.detailsTextColor,
+    letterSpacing: Constants.detailsDescriptionLetterSpacing,
+    wordSpacing: Constants.detailsDescriptionWordSpacing,
   );
 }

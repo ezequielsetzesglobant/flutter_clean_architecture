@@ -1,4 +1,5 @@
 import 'color_entity.dart';
+import 'flavor_text_entry_entity.dart';
 import 'habitat_entity.dart';
 import 'shape_entity.dart';
 
@@ -13,6 +14,7 @@ class SpeciesEntity {
     required this.color,
     required this.habitat,
     required this.shape,
+    required this.flavorTextEntries,
   });
 
   int id;
@@ -24,4 +26,5 @@ class SpeciesEntity {
   ColorEntity color;
   HabitatEntity habitat;
   ShapeEntity shape;
+  List<FlavorTextEntryEntity> flavorTextEntries;
 }

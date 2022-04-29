@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../domain/entity/pokemon_entity.dart';
 import '../../core/util/constants.dart';
 import '../../data/datasource/remote/pokedex_api_service.dart';
 import '../../data/repository/pokedex_repository.dart';
@@ -37,7 +38,7 @@ class AppRoutes {
                 ),
               ),
             ),
-            speciesId: settings.arguments as int,
+            pokemonEntity: settings.arguments as PokemonEntity,
           ),
         );
       default:

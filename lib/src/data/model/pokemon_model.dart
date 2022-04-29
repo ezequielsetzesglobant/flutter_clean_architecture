@@ -1,4 +1,8 @@
+import 'habitat_model.dart';
+import 'shape_model.dart';
+import 'species_model.dart';
 import '../../core/util/constants.dart';
+import 'color_model.dart';
 import 'sprites_model.dart';
 import '../../domain/entity/pokemon_entity.dart';
 
@@ -12,15 +16,18 @@ class PokemonModel extends PokemonEntity {
     int order = Constants.defaultValue,
     int weight = Constants.defaultValue,
     required SpritesModel sprites,
+    required SpeciesModel species,
   }) : super(
-            id: id,
-            name: name,
-            baseExperience: baseExperience,
-            height: height,
-            isDefault: isDefault,
-            order: order,
-            weight: weight,
-            sprites: sprites);
+          id: id,
+          name: name,
+          baseExperience: baseExperience,
+          height: height,
+          isDefault: isDefault,
+          order: order,
+          weight: weight,
+          sprites: sprites,
+          species: species,
+        );
 
   factory PokemonModel.fromJson(Map<String, dynamic> json) {
     return PokemonModel(
@@ -32,6 +39,11 @@ class PokemonModel extends PokemonEntity {
       order: json['order'],
       weight: json['weight'],
       sprites: SpritesModel.fromJson(json['sprites']),
+      species: SpeciesModel(
+        color: ColorModel(),
+        habitat: HabitatModel(),
+        shape: ShapeModel(),
+      ),
     );
   }
 }

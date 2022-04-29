@@ -1,4 +1,7 @@
-import '../../core/util/constants.dart';
+import 'habitat_model.dart';
+import 'shape_model.dart';
+import 'color_model.dart';
+import 'species_model.dart';
 import 'sprites_model.dart';
 import 'pokemon_species_model.dart';
 import 'pokemon_model.dart';
@@ -19,7 +22,14 @@ class PokemonEntryModel extends PokemonEntryEntity {
     return PokemonEntryModel(
       entryNumber: json['entry_number'],
       pokemonSpecies: PokemonSpeciesModel.fromJson(json['pokemon_species']),
-      pokemon: PokemonModel(sprites: SpritesModel()),
+      pokemon: PokemonModel(
+        sprites: SpritesModel(),
+        species: SpeciesModel(
+          color: ColorModel(),
+          habitat: HabitatModel(),
+          shape: ShapeModel(),
+        ),
+      ),
     );
   }
 }
