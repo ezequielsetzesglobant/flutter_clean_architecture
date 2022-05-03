@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../domain/entity/pokemon_entity.dart';
 import '../../core/util/constants.dart';
-import '../../data/datasource/remote/pokedex_api_service.dart';
 import '../../data/repository/pokedex_repository.dart';
 import '../../data/repository/species_repository.dart';
 import '../../domain/usecase/implementation/pokedex_usecase.dart';
@@ -20,9 +19,7 @@ class AppRoutes {
             title: Constants.homePageTitle,
             bloc: PokedexBloc(
               pokedexUseCase: PokedexUsecase(
-                pokedexRepository: PokedexRepository(
-                  pokedexApiService: PokedexApiService(),
-                ),
+                pokedexRepository: PokedexRepository(),
               ),
             ),
           ),
@@ -30,12 +27,10 @@ class AppRoutes {
       case Constants.detailsPageRoute:
         return MaterialPageRoute(
           builder: (_) => DetailsPage(
-            title: Constants.detailsPageTitle,
+            title: (settings.arguments as PokemonEntity).name.toUpperCase(),
             bloc: SpeciesBloc(
               speciesUseCase: SpeciesUsecase(
-                speciesRepository: SpeciesRepository(
-                  pokedexApiService: PokedexApiService(),
-                ),
+                speciesRepository: SpeciesRepository(),
               ),
             ),
             pokemonEntity: settings.arguments as PokemonEntity,

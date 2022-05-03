@@ -5,10 +5,10 @@ class PokemonEntryEntity {
   PokemonEntryEntity({
     required this.entryNumber,
     required this.pokemonSpecies,
-    required this.pokemon,
+    this.pokemon,
   });
 
   int entryNumber;
   PokemonSpeciesEntity pokemonSpecies;
-  PokemonEntity pokemon;
+  PokemonEntity? pokemon;
 }

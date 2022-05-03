@@ -10,8 +10,9 @@ class PokedexUsecase extends IUsecase<DataState<PokedexEntity>> {
   PokedexUsecase({required this.pokedexRepository});
 
   @override
-  Future<DataState<PokedexEntity>> call(
-      {int speciesId = Constants.defaultValue}) {
+  Future<DataState<PokedexEntity>> call({
+    int speciesId = Constants.defaultValue,
+  }) {
     return pokedexRepository.getPokemonIds();
   }
 }

@@ -15,16 +15,17 @@ import 'pokedex_usecase_test.mocks.dart';
 ])
 void main() {
   late IUsecase usecase;
+  late SpeciesRepository repository;
   late MockPokedexApiService pokedexApiService;
   late DataState<SpeciesEntity> dataStateSuccess;
   late DataState<SpeciesEntity> dataStateFailed;
 
   setUp(() {
     pokedexApiService = MockPokedexApiService();
+    repository = SpeciesRepository();
+    repository.pokedexApiService = pokedexApiService;
     usecase = SpeciesUsecase(
-      speciesRepository: SpeciesRepository(
-        pokedexApiService: pokedexApiService,
-      ),
+      speciesRepository: repository,
     );
     SpeciesModel speciesModel = SpeciesModel.fromJson(_getSpeciesJson());
     dataStateSuccess = DataSuccess(speciesModel);

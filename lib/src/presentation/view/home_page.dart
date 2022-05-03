@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    widget.bloc.getPokedexState(PokedexGetPokemonIds());
+    widget.bloc.getPokedexState(pokedexEvent: PokedexGetPokemonIds());
   }
 
   @override

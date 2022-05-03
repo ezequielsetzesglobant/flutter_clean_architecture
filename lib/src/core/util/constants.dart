@@ -5,12 +5,9 @@ class Constants {
   static const String pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
   static const String emptyListMessage = 'Pokemons not found';
   static const String requestError = 'There was a request error';
-  static const int initialValue = 0;
   static const double noSuccessMessageFontSize = 50.0;
   static const String imageNotFound = 'assets/images/image_not_found.jpeg';
-  static const String defaultNome = 'Nameless';
   static const int defaultValue = 0;
-  static const String defaultUrl = '';
   static const double cardImageSize = 100.0;
   static const double cardElementsPadding = 10.0;
   static const String cardWeightLabel = 'Weight:';
@@ -18,7 +15,6 @@ class Constants {
   static const double cardAttributesFontSize = 20.0;
   static const double cardNameHeight = 50.0;
   static const double cardNameWeight = 200.0;
-  static const String detailsPageTitle = 'Details Page';
   static const String speciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
   static const String homePageRoute = '/';
   static const String defaultRouteMessage = 'Route not found';

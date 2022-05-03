@@ -1,5 +1,3 @@
-import 'package:flutter_clean_architecture/src/core/util/constants.dart';
-
 import '../../domain/entity/species_entity.dart';
 import 'color_model.dart';
 import 'flavor_text_entry_model.dart';
@@ -8,16 +6,16 @@ import 'shape_model.dart';
 
 class SpeciesModel extends SpeciesEntity {
   SpeciesModel({
-    int id = Constants.defaultValue,
-    String name = Constants.defaultNome,
-    int captureRate = Constants.defaultValue,
-    bool isBaby = false,
-    bool isLegendary = false,
-    bool isMythical = false,
+    required int id,
+    required String name,
+    required int captureRate,
+    required bool isBaby,
+    required bool isLegendary,
+    required bool isMythical,
     required ColorModel color,
     required HabitatModel habitat,
     required ShapeModel shape,
-    List<FlavorTextEntryModel> flavorTextEntries = const [],
+    required List<FlavorTextEntryModel> flavorTextEntries,
   }) : super(
           id: id,
           name: name,

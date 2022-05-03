@@ -4,11 +4,7 @@ import '../../domain/repository/i_species_repository.dart';
 import '../datasource/remote/pokedex_api_service.dart';
 
 class SpeciesRepository extends ISpeciesRepository {
-  final PokedexApiService pokedexApiService;
-
-  SpeciesRepository({
-    required this.pokedexApiService,
-  });
+  PokedexApiService pokedexApiService = PokedexApiService();
 
   @override
   Future<DataState<SpeciesEntity>> getSpecies({required int speciesId}) {

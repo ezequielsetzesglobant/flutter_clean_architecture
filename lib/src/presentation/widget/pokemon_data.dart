@@ -4,6 +4,7 @@ import '../../core/util/colors_constants.dart';
 import '../../core/util/constants.dart';
 import '../../core/util/text_styles.dart';
 import '../../domain/entity/pokemon_entity.dart';
+import 'detail_box_text.dart';
 
 class PokemonData extends StatelessWidget {
   const PokemonData({required this.pokemonEntity});
@@ -101,45 +102,25 @@ class PokemonData extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: Constants.detailsBoxPadding),
-                      child: Text(
-                        '${Constants.detailsBabyLabel} ${pokemonEntity.species.isBaby ? Constants.yesValue : Constants.noValue}',
-                        style: TextStyles.detailsAttributesTextStyle,
-                      ),
+                    DetailBoxText(
+                      text:
+                          '${Constants.detailsBabyLabel} ${pokemonEntity.species!.isBaby ? Constants.yesValue : Constants.noValue}',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: Constants.detailsBoxPadding),
-                      child: Text(
-                        '${Constants.detailsLegendaryLabel} ${pokemonEntity.species.isLegendary ? Constants.yesValue : Constants.noValue}',
-                        style: TextStyles.detailsAttributesTextStyle,
-                      ),
+                    DetailBoxText(
+                      text:
+                          '${Constants.detailsLegendaryLabel} ${pokemonEntity.species!.isLegendary ? Constants.yesValue : Constants.noValue}',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: Constants.detailsBoxPadding),
-                      child: Text(
-                        '${Constants.detailsMythicalLabel} ${pokemonEntity.species.isMythical ? Constants.yesValue : Constants.noValue}',
-                        style: TextStyles.detailsAttributesTextStyle,
-                      ),
+                    DetailBoxText(
+                      text:
+                          '${Constants.detailsMythicalLabel} ${pokemonEntity.species!.isMythical ? Constants.yesValue : Constants.noValue}',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: Constants.detailsBoxPadding),
-                      child: Text(
-                        '${Constants.detailsHabitatLabel} ${pokemonEntity.species.habitat.name}',
-                        style: TextStyles.detailsAttributesTextStyle,
-                      ),
+                    DetailBoxText(
+                      text:
+                          '${Constants.detailsHabitatLabel} ${pokemonEntity.species?.habitat.name}',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: Constants.detailsBoxPadding),
-                      child: Text(
-                        '${Constants.detailsShapeLabel} ${pokemonEntity.species.shape.name}',
-                        style: TextStyles.detailsAttributesTextStyle,
-                      ),
+                    DetailBoxText(
+                      text:
+                          '${Constants.detailsShapeLabel} ${pokemonEntity.species?.shape.name}',
                     ),
                   ],
                 ),
@@ -153,7 +134,7 @@ class PokemonData extends StatelessWidget {
               ),
             ),
             Text(
-              '${pokemonEntity.species.flavorTextEntries.first.flavorText}',
+              '${pokemonEntity.species?.flavorTextEntries.first.flavorText}',
               style: TextStyles.detailsDescriptionTextStyle,
               textAlign: TextAlign.justify,
             ),

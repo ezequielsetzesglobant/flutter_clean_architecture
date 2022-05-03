@@ -16,6 +16,7 @@ import 'pokedex_usecase_test.mocks.dart';
 ])
 void main() {
   late IUsecase usecase;
+  late PokedexRepository repository;
   late MockPokedexApiService pokedexApiService;
   late DataState<PokedexEntity> dataStateSuccess;
   late DataState<PokedexEntity> dataStateFailed;
@@ -23,10 +24,10 @@ void main() {
 
   setUp(() {
     pokedexApiService = MockPokedexApiService();
+    repository = PokedexRepository();
+    repository.pokedexApiService = pokedexApiService;
     usecase = PokedexUsecase(
-      pokedexRepository: PokedexRepository(
-        pokedexApiService: pokedexApiService,
-      ),
+      pokedexRepository: repository,
     );
     PokedexModel pokedexModel = PokedexModel.fromJson(_getPokedexJson());
     pokedexModel.pokemonEntries.first.pokemon =

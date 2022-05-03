@@ -11,7 +11,7 @@ class PokemonEntity {
     required this.order,
     required this.weight,
     required this.sprites,
-    required this.species,
+    this.species,
   });
 
   int id;
@@ -22,5 +22,5 @@ class PokemonEntity {
   int order;
   int weight;
   SpritesEntity sprites;
-  SpeciesEntity species;
+  SpeciesEntity? species;
 }

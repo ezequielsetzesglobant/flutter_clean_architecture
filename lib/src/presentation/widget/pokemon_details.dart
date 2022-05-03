@@ -27,7 +27,7 @@ class PokemonDetails extends StatelessWidget {
           child: CircularProgressIndicator(),
         );
       default:
-        return Container();
+        return const SizedBox.shrink();
     }
   }
 }

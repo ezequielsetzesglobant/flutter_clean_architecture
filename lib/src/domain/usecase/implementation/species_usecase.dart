@@ -10,8 +10,9 @@ class SpeciesUsecase extends IUsecase<DataState<SpeciesEntity>> {
   SpeciesUsecase({required this.speciesRepository});
 
   @override
-  Future<DataState<SpeciesEntity>> call(
-      {int speciesId = Constants.defaultValue}) {
+  Future<DataState<SpeciesEntity>> call({
+    int speciesId = Constants.defaultValue,
+  }) {
     return speciesRepository.getSpecies(speciesId: speciesId);
   }
 }

@@ -24,9 +24,10 @@ class SpeciesBloc extends ISpeciesBloc {
   }
 
   @override
-  void getSpeciesState(
-      {required SpeciesEvent speciesEvent,
-      required PokemonEntity pokemonEntity}) {
+  void getSpeciesState({
+    required SpeciesEvent speciesEvent,
+    required PokemonEntity pokemonEntity,
+  }) {
     if (speciesEvent is SpeciesGetSpecies) {
       _getSpecies(pokemonEntity: pokemonEntity);
     }

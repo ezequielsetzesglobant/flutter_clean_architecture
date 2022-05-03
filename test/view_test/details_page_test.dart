@@ -44,7 +44,7 @@ void main() {
           () => tester.pumpWidget(
             MaterialApp(
               home: DetailsPage(
-                title: 'Details Page',
+                title: pokemonEntity.name.toUpperCase(),
                 bloc: bloc,
                 pokemonEntity: pokemonEntity,
               ),
@@ -68,7 +68,7 @@ void main() {
           () => tester.pumpWidget(
             MaterialApp(
               home: DetailsPage(
-                title: 'Details Page',
+                title: pokemonEntity.name.toUpperCase(),
                 bloc: bloc,
                 pokemonEntity: pokemonEntity,
               ),

@@ -1,10 +1,9 @@
-import '../../core/util/constants.dart';
 import '../../domain/entity/color_entity.dart';
 
 class ColorModel extends ColorEntity {
   ColorModel({
-    String name = Constants.defaultNome,
-    String url = Constants.defaultUrl,
+    required String name,
+    required String url,
   }) : super(
           name: name,
           url: url,

@@ -1,8 +1,3 @@
-import 'habitat_model.dart';
-import 'shape_model.dart';
-import 'color_model.dart';
-import 'species_model.dart';
-import 'sprites_model.dart';
 import 'pokemon_species_model.dart';
 import 'pokemon_model.dart';
 import '../../domain/entity/pokemon_entry_entity.dart';
@@ -11,7 +6,7 @@ class PokemonEntryModel extends PokemonEntryEntity {
   PokemonEntryModel({
     required int entryNumber,
     required PokemonSpeciesModel pokemonSpecies,
-    required PokemonModel pokemon,
+    PokemonModel? pokemon,
   }) : super(
           entryNumber: entryNumber,
           pokemonSpecies: pokemonSpecies,
@@ -22,14 +17,6 @@ class PokemonEntryModel extends PokemonEntryEntity {
     return PokemonEntryModel(
       entryNumber: json['entry_number'],
       pokemonSpecies: PokemonSpeciesModel.fromJson(json['pokemon_species']),
-      pokemon: PokemonModel(
-        sprites: SpritesModel(),
-        species: SpeciesModel(
-          color: ColorModel(),
-          habitat: HabitatModel(),
-          shape: ShapeModel(),
-        ),
-      ),
     );
   }
 }

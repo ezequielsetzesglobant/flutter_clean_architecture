@@ -20,7 +20,7 @@ class PokemonsList extends StatelessWidget {
             int index,
           ) {
             return ListItem(
-              pokemonEntity: data.pokedexEntity!.pokemonEntries[index].pokemon,
+              pokemonEntity: data.pokedexEntity!.pokemonEntries[index].pokemon!,
             );
           },
         );
