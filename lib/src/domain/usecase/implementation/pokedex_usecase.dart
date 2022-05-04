@@ -7,7 +7,9 @@ import '../../repository/i_pokedex_repository.dart';
 class PokedexUsecase extends IUsecase<DataState<PokedexEntity>> {
   final IPokedexRepository pokedexRepository;
 
-  PokedexUsecase({required this.pokedexRepository});
+  PokedexUsecase({
+    required this.pokedexRepository,
+  });
 
   @override
   Future<DataState<PokedexEntity>> call({

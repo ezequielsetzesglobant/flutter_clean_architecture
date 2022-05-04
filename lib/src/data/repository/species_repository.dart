@@ -7,7 +7,9 @@ class SpeciesRepository extends ISpeciesRepository {
   PokedexApiService pokedexApiService = PokedexApiService();
 
   @override
-  Future<DataState<SpeciesEntity>> getSpecies({required int speciesId}) {
+  Future<DataState<SpeciesEntity>> getSpecies({
+    required int speciesId,
+  }) {
     return pokedexApiService.getSpecies(speciesId: speciesId);
   }
 }

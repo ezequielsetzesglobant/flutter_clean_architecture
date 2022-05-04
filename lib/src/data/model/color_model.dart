@@ -12,7 +12,7 @@ class ColorModel extends ColorEntity {
   factory ColorModel.fromJson(Map<String, dynamic> json) {
     return ColorModel(
       name: json['name'],
-      url: json['name'],
+      url: json['url'],
     );
   }
 }

@@ -5,7 +5,9 @@ import '../../core/util/text_styles.dart';
 import '../bloc/state/pokedex_state.dart';
 
 class PokemonsList extends StatelessWidget {
-  const PokemonsList({required this.data});
+  const PokemonsList({
+    required this.data,
+  });
 
   final PokedexState data;
 

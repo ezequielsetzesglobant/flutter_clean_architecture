@@ -7,7 +7,9 @@ import '../../repository/i_species_repository.dart';
 class SpeciesUsecase extends IUsecase<DataState<SpeciesEntity>> {
   final ISpeciesRepository speciesRepository;
 
-  SpeciesUsecase({required this.speciesRepository});
+  SpeciesUsecase({
+    required this.speciesRepository,
+  });
 
   @override
   Future<DataState<SpeciesEntity>> call({

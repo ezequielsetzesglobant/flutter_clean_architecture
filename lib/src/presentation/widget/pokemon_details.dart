@@ -4,7 +4,9 @@ import '../bloc/state/species_state.dart';
 import 'pokemon_data.dart';
 
 class PokemonDetails extends StatelessWidget {
-  const PokemonDetails({required this.data});
+  const PokemonDetails({
+    required this.data,
+  });
 
   final SpeciesState data;
 

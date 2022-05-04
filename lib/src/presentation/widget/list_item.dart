@@ -6,7 +6,9 @@ import '../../core/util/text_styles.dart';
 import '../../domain/entity/pokemon_entity.dart';
 
 class ListItem extends StatelessWidget {
-  const ListItem({required this.pokemonEntity});
+  const ListItem({
+    required this.pokemonEntity,
+  });
 
   final PokemonEntity pokemonEntity;
 

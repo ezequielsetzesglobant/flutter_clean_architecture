@@ -12,7 +12,7 @@ class HabitatModel extends HabitatEntity {
   factory HabitatModel.fromJson(Map<String, dynamic> json) {
     return HabitatModel(
       name: json['name'],
-      url: json['name'],
+      url: json['url'],
     );
   }
 }

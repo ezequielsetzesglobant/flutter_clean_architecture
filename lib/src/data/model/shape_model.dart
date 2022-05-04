@@ -12,7 +12,7 @@ class ShapeModel extends ShapeEntity {
   factory ShapeModel.fromJson(Map<String, dynamic> json) {
     return ShapeModel(
       name: json['name'],
-      url: json['name'],
+      url: json['url'],
     );
   }
 }

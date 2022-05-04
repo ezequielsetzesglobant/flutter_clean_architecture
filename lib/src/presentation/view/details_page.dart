@@ -25,7 +25,9 @@ class _DetailsPageState extends State<DetailsPage> {
   void initState() {
     super.initState();
     widget.bloc.getSpeciesState(
-        speciesEvent: SpeciesGetSpecies(), pokemonEntity: widget.pokemonEntity);
+      speciesEvent: SpeciesGetSpecies(),
+      pokemonEntity: widget.pokemonEntity,
+    );
   }
 
   @override
