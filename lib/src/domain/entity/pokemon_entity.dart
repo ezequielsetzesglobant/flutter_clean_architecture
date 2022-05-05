@@ -1,3 +1,4 @@
+import 'species_entity.dart';
 import 'sprites_entity.dart';
 
 class PokemonEntity {
@@ -10,6 +11,7 @@ class PokemonEntity {
     required this.order,
     required this.weight,
     required this.sprites,
+    this.species,
   });
 
   int id;
@@ -20,4 +22,5 @@ class PokemonEntity {
   int order;
   int weight;
   SpritesEntity sprites;
+  SpeciesEntity? species;
 }
