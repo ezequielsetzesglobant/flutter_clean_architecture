@@ -26,8 +26,8 @@ class MockPokedexUsecase extends _i1.Mock implements _i4.PokedexUsecase {
           returnValue: _FakeIPokedexRepository_0()) as _i2.IPokedexRepository);
 
   @override
-  _i5.Future<_i3.DataState<_i6.PokedexEntity>> call() =>
-      (super.noSuchMethod(Invocation.method(#call, []),
+  _i5.Future<_i3.DataState<_i6.PokedexEntity>> call({int? speciesId = 0}) =>
+      (super.noSuchMethod(Invocation.method(#call, [], {#speciesId: speciesId}),
               returnValue: Future<_i3.DataState<_i6.PokedexEntity>>.value(
                   _FakeDataState_1<_i6.PokedexEntity>()))
           as _i5.Future<_i3.DataState<_i6.PokedexEntity>>);

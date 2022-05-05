@@ -3,8 +3,8 @@ import '../../domain/entity/sprites_entity.dart';
 
 class SpritesModel extends SpritesEntity {
   SpritesModel({
-    String frontDefault = Constants.imageNotFound,
-    String backDefault = Constants.imageNotFound,
+    required String frontDefault,
+    required String backDefault,
   }) : super(
           frontDefault: frontDefault,
           backDefault: backDefault,

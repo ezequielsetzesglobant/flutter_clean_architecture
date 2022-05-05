@@ -21,7 +21,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    widget.bloc.getPokedexState(PokedexGetPokemonIds());
+    widget.bloc.getPokedexState(
+      pokedexEvent: PokedexGetPokemonIds(),
+    );
   }
 
   @override
@@ -33,7 +35,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
       appBar: AppBar(
         title: Text(
           widget.title,

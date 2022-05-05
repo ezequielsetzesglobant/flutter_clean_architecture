@@ -23,7 +23,9 @@ class PokedexBloc extends IPokedexBloc {
   }
 
   @override
-  void getPokedexState(PokedexEvent pokedexEvent) {
+  void getPokedexState({
+    required PokedexEvent pokedexEvent,
+  }) {
     if (pokedexEvent is PokedexGetPokemonIds) {
       _getPokemonIds();
     }

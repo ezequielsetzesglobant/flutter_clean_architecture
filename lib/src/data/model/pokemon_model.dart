@@ -1,26 +1,29 @@
-import '../../core/util/constants.dart';
+import 'species_model.dart';
 import 'sprites_model.dart';
 import '../../domain/entity/pokemon_entity.dart';
 
 class PokemonModel extends PokemonEntity {
   PokemonModel({
-    int id = Constants.defaultValue,
-    String name = Constants.defaultNome,
-    int baseExperience = Constants.defaultValue,
-    int height = Constants.defaultValue,
-    bool isDefault = false,
-    int order = Constants.defaultValue,
-    int weight = Constants.defaultValue,
+    required int id,
+    required String name,
+    required int baseExperience,
+    required int height,
+    required bool isDefault,
+    required int order,
+    required int weight,
     required SpritesModel sprites,
+    SpeciesModel? species,
   }) : super(
-            id: id,
-            name: name,
-            baseExperience: baseExperience,
-            height: height,
-            isDefault: isDefault,
-            order: order,
-            weight: weight,
-            sprites: sprites);
+          id: id,
+          name: name,
+          baseExperience: baseExperience,
+          height: height,
+          isDefault: isDefault,
+          order: order,
+          weight: weight,
+          sprites: sprites,
+          species: species,
+        );
 
   factory PokemonModel.fromJson(Map<String, dynamic> json) {
     return PokemonModel(

@@ -4,28 +4,25 @@ import '../../core/util/constants.dart';
 import '../../core/util/text_styles.dart';
 import '../bloc/state/pokedex_state.dart';
 
-class PokemonsList extends StatefulWidget {
-  const PokemonsList({required this.data});
+class PokemonsList extends StatelessWidget {
+  const PokemonsList({
+    required this.data,
+  });
 
   final PokedexState data;
 
   @override
-  State<PokemonsList> createState() => _PokemonsListState();
-}
-
-class _PokemonsListState extends State<PokemonsList> {
-  @override
   Widget build(BuildContext context) {
-    switch (widget.data.type) {
+    switch (data.type) {
       case PokedexStateType.success:
         return ListView.builder(
-          itemCount: widget.data.pokedexEntity?.pokemonEntries.length,
+          itemCount: data.pokedexEntity?.pokemonEntries.length,
           itemBuilder: (
             BuildContext context,
             int index,
           ) {
             return ListItem(
-              pokemon: widget.data.pokedexEntity!.pokemonEntries[index].pokemon,
+              pokemonEntity: data.pokedexEntity!.pokemonEntries[index].pokemon!,
             );
           },
         );
@@ -33,17 +30,17 @@ class _PokemonsListState extends State<PokemonsList> {
         return Center(
           child: Text(
             Constants.emptyListMessage,
-            style: TextStyles.pokedexTextStyle,
+            style: TextStyles.noSuccessMessageTextStyle,
           ),
         );
       case PokedexStateType.error:
         return Center(
           child: Text(
-            widget.data.error!,
-            style: TextStyles.pokedexTextStyle,
+            data.error!,
+            style: TextStyles.noSuccessMessageTextStyle,
           ),
         );
-      default:
+      case PokedexStateType.loading:
         return const Center(
           child: CircularProgressIndicator(),
         );
