@@ -1,9 +1,10 @@
 import 'package:flutter_clean_architecture/src/core/resource/data_state.dart';
 import 'package:flutter_clean_architecture/src/core/usecase/i_usecase.dart';
+import 'package:flutter_clean_architecture/src/data/datasource/local/DAOs/pokemon_database.dart';
 import 'package:flutter_clean_architecture/src/data/datasource/remote/pokedex_api_service.dart';
-import 'package:flutter_clean_architecture/src/data/model/species_model.dart';
+import 'package:flutter_clean_architecture/src/data/model/species_detail_model.dart';
 import 'package:flutter_clean_architecture/src/data/repository/species_repository.dart';
-import 'package:flutter_clean_architecture/src/domain/entity/species_entity.dart';
+import 'package:flutter_clean_architecture/src/domain/entity/species_detail_entity.dart';
 import 'package:flutter_clean_architecture/src/domain/usecase/implementation/species_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -12,23 +13,28 @@ import 'pokedex_usecase_test.mocks.dart';
 
 @GenerateMocks([
   PokedexApiService,
+  PokemonDatabase,
 ])
 void main() {
   late IUsecase usecase;
   late SpeciesRepository repository;
   late MockPokedexApiService pokedexApiService;
-  late DataState<SpeciesEntity> dataStateSuccess;
-  late DataState<SpeciesEntity> dataStateFailed;
+  late MockPokemonDatabase database;
+  late DataState<SpeciesDetailEntity> dataStateSuccess;
+  late DataState<SpeciesDetailEntity> dataStateFailed;
+  late SpeciesDetailModel species;
 
   setUp(() {
     pokedexApiService = MockPokedexApiService();
+    database = MockPokemonDatabase();
     repository = SpeciesRepository();
     repository.pokedexApiService = pokedexApiService;
     usecase = SpeciesUsecase(
       speciesRepository: repository,
+      pokemonDatabase: database,
     );
-    SpeciesModel speciesModel = SpeciesModel.fromJson(_getSpeciesJson());
-    dataStateSuccess = DataSuccess(speciesModel);
+    species = SpeciesDetailModel.fromJson(_getSpeciesJson());
+    dataStateSuccess = DataSuccess(species);
     dataStateFailed = DataFailed('error');
   });
 
@@ -37,8 +43,15 @@ void main() {
       when(pokedexApiService.getSpecies(speciesId: 1)).thenAnswer(
         (_) async => dataStateSuccess,
       );
+      when(database.updatePokemon('1', species)).thenAnswer(
+        (_) async => true,
+      );
+      when(database.getSpecies('1')).thenAnswer(
+        (_) async => species,
+      );
 
-      DataState<SpeciesEntity> dataStateResponse = await usecase(speciesId: 1);
+      DataState<SpeciesDetailEntity> dataStateResponse =
+          await usecase(speciesId: 1);
 
       expect(dataStateResponse.data, dataStateSuccess.data);
       expect(dataStateResponse.error, null);
@@ -49,12 +62,16 @@ void main() {
       when(pokedexApiService.getSpecies(speciesId: 1)).thenAnswer(
         (_) async => dataStateFailed,
       );
+      when(database.getSpecies('1')).thenAnswer(
+        (_) async => species,
+      );
 
-      DataState<SpeciesEntity> dataStateResponse = await usecase(speciesId: 1);
+      DataState<SpeciesDetailEntity> dataStateResponse =
+          await usecase(speciesId: 1);
 
-      expect(dataStateResponse.error, dataStateFailed.error);
-      expect(dataStateResponse.data, null);
-      expect(dataStateResponse.type, dataStateFailed.type);
+      expect(dataStateResponse.data, dataStateSuccess.data);
+      expect(dataStateResponse.error, null);
+      expect(dataStateResponse.type, dataStateSuccess.type);
     });
   });
 }

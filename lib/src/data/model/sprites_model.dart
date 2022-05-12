@@ -3,8 +3,8 @@ import '../../domain/entity/sprites_entity.dart';
 
 class SpritesModel extends SpritesEntity {
   SpritesModel({
-    required String frontDefault,
-    required String backDefault,
+    required this.frontDefault,
+    required this.backDefault,
   }) : super(
           frontDefault: frontDefault,
           backDefault: backDefault,
@@ -16,4 +16,14 @@ class SpritesModel extends SpritesEntity {
       backDefault: json['back_default'] ?? Constants.imageNotFound,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'front_default': frontDefault,
+      'back_default': backDefault,
+    };
+  }
+
+  final String frontDefault;
+  final String backDefault;
 }

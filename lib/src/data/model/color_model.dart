@@ -2,8 +2,8 @@ import '../../domain/entity/color_entity.dart';
 
 class ColorModel extends ColorEntity {
   ColorModel({
-    required String name,
-    required String url,
+    required this.name,
+    required this.url,
   }) : super(
           name: name,
           url: url,
@@ -14,5 +14,15 @@ class ColorModel extends ColorEntity {
       name: json['name'],
       url: json['url'],
     );
+  }
+
+  final String name;
+  final String url;
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'name': name,
+      'url': url,
+    };
   }
 }

@@ -34,6 +34,8 @@ dependencies:
   build_runner: ^2.1.8
   network_image_mock: ^2.1.0
   cached_network_image: ^3.2.0
+  firebase_core: ^1.16.0
+  cloud_firestore: ^3.1.14
 
 
   # The following adds the Cupertino Icons font to your application.

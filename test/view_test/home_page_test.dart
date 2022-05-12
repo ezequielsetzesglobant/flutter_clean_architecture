@@ -27,8 +27,8 @@ void main() {
     usecase = MockPokedexUsecase();
     bloc = PokedexBloc(pokedexUseCase: usecase);
     PokedexModel pokedexModel = PokedexModel.fromJson(_getPokedexJson());
-    pokedexModel.pokemonEntries.first.pokemon =
-        PokemonModel.fromJson(_getPokemonJson());
+    pokedexModel.pokemonEntries.first = pokedexModel.pokemonEntries.first
+        .copyWith(pokemon: PokemonModel.fromJson(_getPokemonJson()));
     dataStateSuccess = DataSuccess(pokedexModel);
     dataStateFailed = DataFailed('error');
     dataStateEmptyList = DataEmpty();

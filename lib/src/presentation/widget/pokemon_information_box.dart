@@ -31,23 +31,23 @@ class PokemonInformationBox extends StatelessWidget {
           children: [
             DetailBoxText(
               text:
-                  '${Constants.detailsBabyLabel} ${pokemonEntity.species!.isBaby ? Constants.yesValue : Constants.noValue}',
+                  '${Constants.detailsBabyLabel} ${pokemonEntity.speciesDetail!.isBaby ? Constants.yesValue : Constants.noValue}',
             ),
             DetailBoxText(
               text:
-                  '${Constants.detailsLegendaryLabel} ${pokemonEntity.species!.isLegendary ? Constants.yesValue : Constants.noValue}',
+                  '${Constants.detailsLegendaryLabel} ${pokemonEntity.speciesDetail!.isLegendary ? Constants.yesValue : Constants.noValue}',
             ),
             DetailBoxText(
               text:
-                  '${Constants.detailsMythicalLabel} ${pokemonEntity.species!.isMythical ? Constants.yesValue : Constants.noValue}',
+                  '${Constants.detailsMythicalLabel} ${pokemonEntity.speciesDetail!.isMythical ? Constants.yesValue : Constants.noValue}',
             ),
             DetailBoxText(
               text:
-                  '${Constants.detailsHabitatLabel} ${pokemonEntity.species?.habitat.name}',
+                  '${Constants.detailsHabitatLabel} ${pokemonEntity.speciesDetail?.habitat.name}',
             ),
             DetailBoxText(
               text:
-                  '${Constants.detailsShapeLabel} ${pokemonEntity.species?.shape.name}',
+                  '${Constants.detailsShapeLabel} ${pokemonEntity.speciesDetail?.shape.name}',
             ),
           ],
         ),
