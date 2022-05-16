@@ -1,5 +1,5 @@
 import '../../../domain/entity/pokemon_entity.dart';
-import '../../../domain/entity/species_entity.dart';
+import '../../../domain/entity/species_detail_entity.dart';
 
 abstract class SpeciesState {
   final PokemonEntity? pokemonEntity;

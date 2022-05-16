@@ -2,8 +2,8 @@ import '../../domain/entity/pokemon_species_entity.dart';
 
 class PokemonSpeciesModel extends PokemonSpeciesEntity {
   PokemonSpeciesModel({
-    required String name,
-    required String url,
+    required this.name,
+    required this.url,
   }) : super(
           name: name,
           url: url,
@@ -15,4 +15,7 @@ class PokemonSpeciesModel extends PokemonSpeciesEntity {
       url: json['url'],
     );
   }
+
+  final String name;
+  final String url;
 }

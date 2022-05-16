@@ -8,7 +8,7 @@ class PokemonEntryEntity {
     this.pokemon,
   });
 
-  int entryNumber;
-  PokemonSpeciesEntity pokemonSpecies;
-  PokemonEntity? pokemon;
+  final int entryNumber;
+  final PokemonSpeciesEntity pokemonSpecies;
+  final PokemonEntity? pokemon;
 }
