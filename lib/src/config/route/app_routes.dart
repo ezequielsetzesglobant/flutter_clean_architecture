@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/data/datasource/local/DAOs/pokemon_database.dart';
+import '../../data/datasource/local/DAOs/pokemon_database.dart';
+import '../../presentation/view/splash_screen.dart';
 import '../../domain/entity/pokemon_entity.dart';
 import '../../core/util/constants.dart';
 import '../../data/repository/pokedex_repository.dart';

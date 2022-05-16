@@ -40,4 +40,10 @@ class TextStyles {
     letterSpacing: Constants.detailsDescriptionLetterSpacing,
     wordSpacing: Constants.detailsDescriptionWordSpacing,
   );
+  static const TextStyle splashScreenTitleTextStyle = TextStyle(
+    fontSize: Constants.splashScreenTitleFontSize,
+    color: Colors.red,
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.italic,
+  );
 }
