@@ -1,5 +1,4 @@
 import '../../../domain/entity/pokemon_entity.dart';
-import '../../../domain/entity/species_detail_entity.dart';
 
 abstract class SpeciesState {
   final PokemonEntity? pokemonEntity;
@@ -27,4 +26,8 @@ class SpeciesError extends SpeciesState {
       : super(error: error, type: SpeciesStateType.error);
 }
 
-enum SpeciesStateType { loading, success, error }
+enum SpeciesStateType {
+  loading,
+  success,
+  error,
+}

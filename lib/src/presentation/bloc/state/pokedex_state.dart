@@ -42,4 +42,9 @@ class PokedexSplash extends PokedexState {
         );
 }
 
-enum PokedexStateType { success, empty, error, splash }
+enum PokedexStateType {
+  success,
+  empty,
+  error,
+  splash,
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'HomeScaffold.dart';
+import 'home_scaffold.dart';
 import '../view/splash_screen.dart';
 import 'list_item.dart';
 import '../../core/util/constants.dart';
@@ -38,7 +38,7 @@ class PokemonsList extends StatelessWidget {
         return HomeScaffold(
           title: title,
           child: Center(
-            child: Text(
+            child: const Text(
               Constants.emptyListMessage,
               style: TextStyles.noSuccessMessageTextStyle,
             ),

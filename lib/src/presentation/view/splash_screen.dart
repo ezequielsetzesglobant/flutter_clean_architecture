@@ -23,8 +23,8 @@ class SplashScreen extends StatelessWidget {
                   child: Lottie.asset(Constants.splashScreenGif),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(Constants.splashScreenPadding),
+              const Padding(
+                padding: EdgeInsets.all(Constants.splashScreenPadding),
                 child: Text(
                   Constants.splashScreenTitle,
                   style: TextStyles.splashScreenTitleTextStyle,
