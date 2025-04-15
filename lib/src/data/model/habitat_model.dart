@@ -2,8 +2,8 @@ import '../../domain/entity/habitat_entity.dart';
 
 class HabitatModel extends HabitatEntity {
   HabitatModel({
-    required String name,
-    required String url,
+    required this.name,
+    required this.url,
   }) : super(
           name: name,
           url: url,
@@ -14,5 +14,15 @@ class HabitatModel extends HabitatEntity {
       name: json['name'],
       url: json['url'],
     );
+  }
+
+  final String name;
+  final String url;
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'name': name,
+      'url': url,
+    };
   }
 }

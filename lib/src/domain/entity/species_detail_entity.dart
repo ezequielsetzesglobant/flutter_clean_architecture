@@ -3,8 +3,8 @@ import 'flavor_text_entry_entity.dart';
 import 'habitat_entity.dart';
 import 'shape_entity.dart';
 
-class SpeciesEntity {
-  SpeciesEntity({
+class SpeciesDetailEntity {
+  SpeciesDetailEntity({
     required this.id,
     required this.name,
     required this.captureRate,
@@ -17,14 +17,14 @@ class SpeciesEntity {
     required this.flavorTextEntries,
   });
 
-  int id;
-  String name;
-  int captureRate;
-  bool isBaby;
-  bool isLegendary;
-  bool isMythical;
-  ColorEntity color;
-  HabitatEntity habitat;
-  ShapeEntity shape;
-  List<FlavorTextEntryEntity> flavorTextEntries;
+  final int id;
+  final String name;
+  final int captureRate;
+  final bool isBaby;
+  final bool isLegendary;
+  final bool isMythical;
+  final ColorEntity color;
+  final HabitatEntity habitat;
+  final ShapeEntity shape;
+  final List<FlavorTextEntryEntity> flavorTextEntries;
 }

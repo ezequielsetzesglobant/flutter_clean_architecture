@@ -4,6 +4,6 @@ class SpritesEntity {
     required this.backDefault,
   });
 
-  String frontDefault;
-  String backDefault;
+  final String frontDefault;
+  final String backDefault;
 }

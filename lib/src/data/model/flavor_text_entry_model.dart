@@ -2,7 +2,7 @@ import '../../domain/entity/flavor_text_entry_entity.dart';
 
 class FlavorTextEntryModel extends FlavorTextEntryEntity {
   FlavorTextEntryModel({
-    required String flavorText,
+    required this.flavorText,
   }) : super(
           flavorText: flavorText,
         );
@@ -11,5 +11,13 @@ class FlavorTextEntryModel extends FlavorTextEntryEntity {
     return FlavorTextEntryModel(
       flavorText: json['flavor_text'],
     );
+  }
+
+  final String flavorText;
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'flavor_text': flavorText,
+    };
   }
 }

@@ -4,6 +4,6 @@ class HabitatEntity {
     required this.url,
   });
 
-  String name;
-  String url;
+  final String name;
+  final String url;
 }

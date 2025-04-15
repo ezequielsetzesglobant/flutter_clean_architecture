@@ -33,12 +33,14 @@ class SpeciesBloc extends ISpeciesBloc {
     }
   }
 
-  void _getSpecies({required PokemonEntity pokemonEntity}) async {
+  void _getSpecies({
+    required PokemonEntity pokemonEntity,
+  }) async {
     final dataState = await speciesUseCase(speciesId: pokemonEntity.id);
     switch (dataState.type) {
       case DataStateType.success:
-        pokemonEntity.species = dataState.data;
-        _pokedexStreamController.sink.add(SpeciesSuccess(pokemonEntity));
+        _pokedexStreamController.sink.add(SpeciesSuccess(
+            pokemonEntity.copyWith(speciesDetail: dataState.data)));
         break;
       case DataStateType.error:
         _pokedexStreamController.sink.add(SpeciesError(dataState.error));

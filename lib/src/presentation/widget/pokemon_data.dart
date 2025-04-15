@@ -53,7 +53,7 @@ class PokemonData extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: Constants.detailsPadding),
               child: Text(
-                '${pokemonEntity.species?.flavorTextEntries.first.flavorText}',
+                '${pokemonEntity.speciesDetail?.flavorTextEntries.first.flavorText}',
                 style: TextStyles.detailsDescriptionTextStyle,
                 textAlign: TextAlign.justify,
               ),

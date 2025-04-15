@@ -5,9 +5,11 @@ class Constants {
   static const String pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
   static const String emptyListMessage = 'Pokemons not found';
   static const String requestError = 'There was a request error';
+  static const String detailsErrorMessage = 'Details not found';
   static const double noSuccessMessageFontSize = 50.0;
   static const String imageNotFound = 'assets/images/image_not_found.jpeg';
-  static const int defaultValue = 0;
+  static const int defaultIntValue = 0;
+  static const String defaultStringValue = 'Valueless';
   static const double cardImageSize = 100.0;
   static const double cardElementsPadding = 10.0;
   static const String cardWeightLabel = 'Weight:';
@@ -64,4 +66,12 @@ class Constants {
   static const double opacity = 1.0;
   static const String yesValue = 'Yes';
   static const String noValue = 'No';
+  static const int initialValue = 0;
+  static const String collectionName = 'pokemon';
+  static const String splashScreenTitle = 'Pokemons';
+  static const String splashScreenGif = 'assets/lottie/pokeball.json';
+  static const double splashScreenTitleFontSize = 60.0;
+  static const double splashScreenGifHeight = 300;
+  static const double splashScreenGifWidth = 300;
+  static const double splashScreenPadding = 20.0;
 }

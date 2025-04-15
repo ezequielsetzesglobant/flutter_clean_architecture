@@ -3,10 +3,10 @@ import '../../domain/entity/pokedex_entity.dart';
 
 class PokedexModel extends PokedexEntity {
   PokedexModel({
-    required int id,
-    required String name,
-    required bool isMainSeries,
-    required List<PokemonEntryModel> pokemonEntries,
+    required this.id,
+    required this.name,
+    required this.isMainSeries,
+    required this.pokemonEntries,
   }) : super(
           id: id,
           name: name,
@@ -27,4 +27,9 @@ class PokedexModel extends PokedexEntity {
       pokemonEntries: pokedexEntriesModel,
     );
   }
+
+  final int id;
+  final String name;
+  final bool isMainSeries;
+  final List<PokemonEntryModel> pokemonEntries;
 }

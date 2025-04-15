@@ -3,5 +3,5 @@ class FlavorTextEntryEntity {
     required this.flavorText,
   });
 
-  String flavorText;
+  final String flavorText;
 }

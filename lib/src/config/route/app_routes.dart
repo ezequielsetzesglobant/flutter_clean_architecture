@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../data/datasource/local/DAOs/pokemon_database.dart';
+import '../../presentation/view/splash_screen.dart';
 import '../../domain/entity/pokemon_entity.dart';
 import '../../core/util/constants.dart';
 import '../../data/repository/pokedex_repository.dart';
@@ -20,6 +22,7 @@ class AppRoutes {
             bloc: PokedexBloc(
               pokedexUseCase: PokedexUsecase(
                 pokedexRepository: PokedexRepository(),
+                pokemonDatabase: PokemonDatabase(),
               ),
             ),
           ),
@@ -31,6 +34,7 @@ class AppRoutes {
             bloc: SpeciesBloc(
               speciesUseCase: SpeciesUsecase(
                 speciesRepository: SpeciesRepository(),
+                pokemonDatabase: PokemonDatabase(),
               ),
             ),
             pokemonEntity: settings.arguments as PokemonEntity,

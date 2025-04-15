@@ -8,8 +8,8 @@ class PokedexEntity {
     required this.pokemonEntries,
   });
 
-  int id;
-  String name;
-  bool isMainSeries;
-  List<PokemonEntryEntity> pokemonEntries;
+  final int id;
+  final String name;
+  final bool isMainSeries;
+  final List<PokemonEntryEntity> pokemonEntries;
 }

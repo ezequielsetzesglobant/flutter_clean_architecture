@@ -12,13 +12,6 @@ abstract class PokedexState {
   });
 }
 
-class PokedexLoading extends PokedexState {
-  const PokedexLoading()
-      : super(
-          type: PokedexStateType.loading,
-        );
-}
-
 class PokedexSuccess extends PokedexState {
   const PokedexSuccess(PokedexEntity pokedex)
       : super(
@@ -42,4 +35,16 @@ class PokedexError extends PokedexState {
         );
 }
 
-enum PokedexStateType { loading, success, empty, error }
+class PokedexSplash extends PokedexState {
+  const PokedexSplash()
+      : super(
+          type: PokedexStateType.splash,
+        );
+}
+
+enum PokedexStateType {
+  success,
+  empty,
+  error,
+  splash,
+}
