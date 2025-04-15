@@ -68,4 +68,10 @@ class Constants {
   static const String noValue = 'No';
   static const int initialValue = 0;
   static const String collectionName = 'pokemon';
+  static const String splashScreenTitle = 'Pokemons';
+  static const String splashScreenGif = 'assets/lottie/pokeball.json';
+  static const double splashScreenTitleFontSize = 60.0;
+  static const double splashScreenGifHeight = 300;
+  static const double splashScreenGifWidth = 300;
+  static const double splashScreenPadding = 20.0;
 }

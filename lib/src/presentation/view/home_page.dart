@@ -34,29 +34,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-        ),
-      ),
-      body: SafeArea(
-        child: StreamBuilder<PokedexState>(
-          initialData: PokedexLoading(),
-          stream: widget.bloc.pokedexStream,
-          builder: (context, AsyncSnapshot<PokedexState> snapshot) {
-            if (snapshot.hasData) {
-              return PokemonsList(
-                data: snapshot.data!,
-              );
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ),
-      ),
+    return StreamBuilder<PokedexState>(
+      initialData: PokedexSplash(),
+      stream: widget.bloc.pokedexStream,
+      builder: (context, AsyncSnapshot<PokedexState> snapshot) {
+        if (snapshot.hasData) {
+          return PokemonsList(
+            title: widget.title,
+            data: snapshot.data!,
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 }
